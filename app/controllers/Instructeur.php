@@ -5,11 +5,10 @@ class Instructeur
 
     public function __construct()
     {
-        echo "test";
     }
 
-    public function index()
+    public function index($firstname)
     {
-        echo "Dit is de index method";
+        echo "Mijn naam is: " . $firstname;
     }
 }
