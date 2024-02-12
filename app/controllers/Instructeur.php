@@ -7,7 +7,7 @@ class Instructeur
     {
     }
 
-    public function index($firstname)
+    public function index($firstname = NULL)
     {
         echo "Mijn naam is: " . $firstname;
     }
