@@ -2,7 +2,10 @@
 
 class Instructeur extends BaseController
 {
-
+    /**
+     * De constructor wordt uitgevoerd wanneer er een nieuw object 
+     * van de class wordt gemaakt.
+     */
     public function __construct()
     {
     }
