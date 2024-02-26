@@ -1,6 +1,10 @@
-<?php require APPROOT . '/views/includes/header.php'; ?>
+<?php require_once APPROOT . '/views/includes/header.php'; ?>
 
 <?= $data['title']; ?>
+<br>
 <?= $data['name']; ?>
+<br>
 
-<?php require APPROOT . '/views/includes/footer.php'; ?>
+<a href="<?= URLROOT; ?>/Homepage/index">Homepage</a>
+
+<?php require_once APPROOT . '/views/includes/footer.php'; ?>
