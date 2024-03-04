@@ -28,13 +28,27 @@
             /**
              * We roepen de model method getCountries() aan
              */
-            $this->countryModel->getCountries();
+            $countries = $this->countryModel->getCountries();
+            var_dump($countries);
+
+            $dataRows = '';
+            foreach ($countries as $country) {
+                $dataRows .= "<tr>
+                                <td>$country->Name</td>
+                                <td>$country->CapitalCity</td>
+                                <td>$country->Continent</td>
+                                <td>$country->Population</td>
+                            </tr>";
+            }
+
+
 
             /**
              * Maak een $data-array voor het meegeven van info in de view
              */
             $data = [
-                'title' => 'Landen van de wereld'
+                'title' => 'Landen van de wereld',
+                'dataRows' => $dataRows
             ];
 
             /**

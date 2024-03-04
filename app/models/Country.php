@@ -11,6 +11,10 @@ class Country
 
     public function getCountries()
     {
+        /**
+         * Deze sql-query selecteert alle records uit de tabel countries
+         * in de database
+         */
         $sql = 'SELECT  Id
                        ,Name
                        ,CapitalCity
@@ -18,10 +22,20 @@ class Country
                        ,Population
                 FROM   Country';
 
+        /**
+         * We gaan de sql-query gereed maken voor de PDO class om mee te werken
+         */
         $this->db->query($sql); 
 
+        /**
+         * Met de method resultSet voeren we de query uit en stoppen we de objecten in 
+         * een array $result
+         */
         $result = $this->db->resultSet();
-        echo 'Hoi';
-        var_dump($result);
+
+        /**
+         * We geven $result terug aan de controller method
+         */
+        return $result;
     }
 }
