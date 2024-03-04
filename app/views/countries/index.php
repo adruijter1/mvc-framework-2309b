@@ -2,7 +2,7 @@
 
 <h3><?= $data['title']; ?></h3>
 
-<table>
+<table class="table table-hover">
     <thead>
         <th>Land</th>
         <th>Hoofdstad</th>

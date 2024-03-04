@@ -29,7 +29,7 @@
              * We roepen de model method getCountries() aan
              */
             $countries = $this->countryModel->getCountries();
-            var_dump($countries);
+            //var_dump($countries);
 
             $dataRows = '';
             foreach ($countries as $country) {
@@ -40,8 +40,6 @@
                                 <td>$country->Population</td>
                             </tr>";
             }
-
-
 
             /**
              * Maak een $data-array voor het meegeven van info in de view
