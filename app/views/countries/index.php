@@ -2,6 +2,8 @@
 
 <h3><?= $data['title']; ?></h3>
 
+<p><a href="<?= URLROOT; ?>/countries/create">Voeg nieuw land toe</a></p>
+
 <table class="table table-hover">
     <thead>
         <th>Land</th>
@@ -10,6 +12,7 @@
         <th>Aantal Inwoners</th>
     </thead>
     <tbody>
+        <!-- We geven de rows weer in de controller zijn gevormd -->
         <?= $data['dataRows']; ?>
     </tbody>
 </table>

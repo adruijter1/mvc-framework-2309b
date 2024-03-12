@@ -54,6 +54,25 @@
              */
             $this->view('countries/index', $data);
         }
+
+        /**
+         * Toevoegen van een nieuw record aan de database
+         */
+        public function create()
+        {
+            /**
+             * Hier plaatsen we alle informatie die in de view
+             * moet worden getoond
+             */
+            $data = [
+                'title' => 'Voeg een nieuw land toe'
+            ];
+
+            /**
+             * Laat de view zien countries/create en geef het $data array mee
+             */
+            $this->view('countries/create', $data);
+        }
     }
 
 ?>
