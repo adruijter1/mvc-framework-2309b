@@ -67,4 +67,13 @@ class Database{
         $this->execute();
         return $this->statement->fetchAll(PDO::FETCH_OBJ);
     }
+
+    /**
+     * Deze method bind de waarden van de placeholders in de query
+     * aan de waarden van het $_POST array
+     */
+    public function bind($param, $value, $type=null)
+    {
+        $this->statement->bindValue($param, $value, $type);
+    }
 }

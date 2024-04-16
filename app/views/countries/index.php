@@ -6,7 +6,7 @@
 
 <table class="table table-hover">
     <thead>
-        <th>Land</th>
+        <th>Landen</th>
         <th>Hoofdstad</th>
         <th>Continent</th>
         <th>Aantal Inwoners</th>

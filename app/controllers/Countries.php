@@ -60,6 +60,18 @@
          */
         public function create()
         {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST')
+            {                
+                $result = $this->countryModel->createCountry($_POST);
+
+                echo '<div class="alert alert-success" role="alert">
+                        Het land is toegevoegd aan de databasetabel
+                      </div>';
+
+                header("refresh:6; url=" . URLROOT . "/countries/index");           
+            }
+
+
             /**
              * Hier plaatsen we alle informatie die in de view
              * moet worden getoond
