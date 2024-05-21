@@ -76,4 +76,14 @@ class Database{
     {
         $this->statement->bindValue($param, $value, $type);
     }
+
+    /**
+     * Deze method returned een enkel object met daarin informatie
+     * uit de database
+     */
+    public function single()
+    {
+        $this->execute();
+        return $this->statement->fetch(PDO::FETCH_OBJ);
+    }
 }

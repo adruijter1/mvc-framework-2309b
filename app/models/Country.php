@@ -70,4 +70,67 @@ class Country
     }
 
 
+    public function getCountryById($countryId)
+    {
+        /**
+         * We maken een select-query voor het ophalen van een record
+         * uit de database
+         */
+        $sql = 'SELECT Id
+                      ,Name
+                      ,CapitalCity
+                      ,Continent
+                      ,Population
+                FROM  Country
+                WHERE Id = :countryId';
+        /**
+         * We maken de query gereed voor de PDO class
+         */
+        $this->db->query($sql);
+
+        /**
+         * We binden de waarde aan de query
+         */
+        $this->db->bind(':countryId', $countryId, PDO::PARAM_INT);
+
+        /**
+         * We voeren de query uit en geven het object terug aan de controller
+         */
+        return $this->db->single();
+
+    }
+
+    public function updateCountry($postDataArray)
+    {
+        /**
+         * We maken een update-query voor het wijzigen van een record
+         */
+        $sql = "UPDATE Country
+                SET    Name = :name
+                      ,CapitalCity = :capitalCity
+                      ,Continent = :continent
+                      ,Population = :population
+                WHERE  Id = :countryId";
+        
+        /**
+         * We maken de query gereed voor de PDO class
+         */
+        $this->db->query($sql);
+
+        /**
+         * We binden de waarden aan de query
+         */
+        $this->db->bind(':name', $postDataArray['country'], PDO::PARAM_STR);
+        $this->db->bind(':capitalCity', $postDataArray['capitalCity'], PDO::PARAM_STR);
+        $this->db->bind(':continent', $postDataArray['continent'], PDO::PARAM_STR);
+        $this->db->bind(':population', $postDataArray['population'], PDO::PARAM_INT);
+        $this->db->bind(':countryId', $postDataArray['Id'], PDO::PARAM_INT);
+
+        /**
+         * We voeren de query uit
+         */
+        return $this->db->execute();
+    }
+
+
 }

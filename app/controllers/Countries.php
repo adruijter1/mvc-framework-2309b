@@ -38,6 +38,10 @@
                                 <td>$country->CapitalCity</td>
                                 <td>$country->Continent</td>
                                 <td>$country->Population</td>
+                                <td>
+                                    <a href='" . URLROOT . "/countries/update/$country->Id'>
+                                        <i class='bi bi-pencil-square'></i></td>
+                                    </a>
                             </tr>";
             }
 
@@ -84,6 +88,51 @@
              * Laat de view zien countries/create en geef het $data array mee
              */
             $this->view('countries/create', $data);
+        }
+
+        public function update($countryId = NULL)
+        {
+            /**
+             * Als er op de submit knop is gedrukt dan...
+             */
+            if($_SERVER['REQUEST_METHOD'] == 'POST')
+            {
+                /**
+                 * Roep de model method updateCountry() aan
+                 */
+                $result = $this->countryModel->updateCountry($_POST);
+                 
+                /**
+                 * Geef een melding dat de gegevens zijn gewijzigd
+                 */
+                echo '<div class="alert alert-success" role="alert">
+                        De landgegevens zijn gewijzigd
+                      </div>';                
+
+                /**
+                 * Stuur de gebruiker terug naar de index pagina
+                 */
+                header("Refresh:3; url=" . URLROOT . "/countries/index");
+            
+            }
+
+            /**
+             * Roep de model method getCountryById() aan
+             */
+            $result = $this->countryModel->getCountryById($countryId);
+
+            /**
+             * Maak een $data-array voor het meegeven van info in de view
+             */
+            $data = [
+                'title' => 'Wijzig de landgegevens',
+                'info' => $result
+            ];
+
+            /**
+             * Laat de view zien countries/update en geef het $data array mee
+             */
+            $this->view('countries/update', $data);
         }
     }
 

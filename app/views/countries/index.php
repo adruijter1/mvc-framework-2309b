@@ -19,6 +19,7 @@
                     <th>Hoofdstad</th>
                     <th>Continent</th>
                     <th>Aantal Inwoners</th>
+                    <th>Wijzig</th>
                 </thead>
                 <tbody>
                     <!-- We geven de rows weer in de controller zijn gevormd -->
