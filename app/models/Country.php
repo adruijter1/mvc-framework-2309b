@@ -132,5 +132,29 @@ class Country
         return $this->db->execute();
     }
 
+    public function deleteCountry($countryId)
+    {
+        /**
+         * We maken een delete-query voor het verwijderen van een record
+         */
+        $sql = "DELETE FROM Country
+                WHERE Id = :countryId";
+
+        /**
+         * We maken de query gereed voor de PDO class
+         */
+        $this->db->query($sql);
+
+        /**
+         * We binden de waarde aan de query
+         */
+        $this->db->bind(':countryId', $countryId, PDO::PARAM_INT);
+
+        /**
+         * We voeren de query uit
+         */
+        return $this->db->execute();
+    }
+
 
 }

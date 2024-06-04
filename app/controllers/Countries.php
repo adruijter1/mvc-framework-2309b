@@ -38,10 +38,16 @@
                                 <td>$country->CapitalCity</td>
                                 <td>$country->Continent</td>
                                 <td>$country->Population</td>
-                                <td>
-                                    <a href='" . URLROOT . "/countries/update/$country->Id'>
+                                <td class='text-center'>
+                                    <a href='" . URLROOT . "/countries/update/{$country->Id}'>
                                         <i class='bi bi-pencil-square'></i></td>
                                     </a>
+                                </td>
+                                <td class='text-center'>
+                                    <a href='" . URLROOT . "/countries/delete/{$country->Id}'>
+                                        <i class='bi bi-trash'></i>
+                                    </a>
+                                </td>                                
                             </tr>";
             }
 
@@ -133,6 +139,19 @@
              * Laat de view zien countries/update en geef het $data array mee
              */
             $this->view('countries/update', $data);
+        }
+
+        public function delete($countryId)
+        {
+            $result = $this->countryModel->deleteCountry($countryId);
+
+            $data = [
+                'message' => 'Het land is verwijderd'
+            ];
+
+            header("Refresh:1; url=" . URLROOT . "/countries/index");
+
+            $this->view('countries/delete', $data);
         }
     }
 

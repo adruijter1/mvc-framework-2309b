@@ -6,6 +6,7 @@ Class Core
 {
     protected $currentController = 'Homepage';
     protected $currentMethod = 'index';
+    protected $params = [];
 
     /**
      * Bij het maken van een Core-Class object wordt altijd de
